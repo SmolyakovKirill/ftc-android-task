@@ -24,17 +24,28 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         init()
         viewModel.myCardItem.observe(viewLifecycleOwner) { list ->
-            binding.textView3.text = list.body()?.brand.toString()
-            binding.textView4.text = list.body()?.country?.name.toString()
-            binding.textView5.text = list.body()?.scheme.toString()
+            binding.tvSchemeValue.text = list.body()?.scheme
+            binding.tvTypeValue.text = list.body()?.type
+            binding.tvBankName.text = list.body()?.bank?.name
+            binding.tvBankSite.text = list.body()?.bank?.url
+            binding.tvBankNumber.text = list.body()?.bank?.phone
+            binding.tvBrandValue.text = list.body()?.brand
+            binding.tvPrepaidValue.text = list.body()?.brand
+            binding.tvLengthValue.text = list.body()?.number?.length.toString()
+            binding.tvLunhValue.text = list.body()?.number?.luhn.toString()
+            binding.tvCountryValue.text = list.body()?.country?.name
+            binding.tvEmoji.text = list.body()?.country?.emoji
+            binding.tvLatitude.text = list.body()?.country?.latitude.toString()
+            binding.tvLongitude.text = list.body()?.country?.longitude.toString()
         }
         return binding.root
     }
 
     private fun init() = with(binding){
         val viewModel = ViewModelProvider(this@MainFragment)[MainViewModel::class.java]
-        button.setOnClickListener{
-            viewModel.getCardInformation(editTextTextPersonName.text.toString())
+        btGetCardInform.setOnClickListener{
+            if(etCardNumber.text.isNotEmpty())
+                viewModel.getCardInformation(etCardNumber.text.toString())
         }
     }
 
