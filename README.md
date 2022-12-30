@@ -1,4 +1,4 @@
-# avito-android-task
+# ftc-android-task
 Card application for ftc
 
 ### Функционал реализованный в приложении:
