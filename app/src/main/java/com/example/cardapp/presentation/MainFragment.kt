@@ -1,15 +1,14 @@
 package com.example.cardapp.presentation
 
-import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.cardapp.R
-import com.example.cardapp.data.repository.Repository
+import androidx.lifecycle.asLiveData
+import com.example.cardapp.data.db.MainDb
+import com.example.cardapp.data.db.RequestCard
 import com.example.cardapp.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -21,7 +20,15 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val viewModel = ViewModelProvider(this@MainFragment)[MainViewModel::class.java]
+        val db = context?.let { MainDb.getDb(it) }
         binding = FragmentMainBinding.inflate(inflater, container, false)
+        db?.getDao()?.getAllRequests()?.asLiveData()?.observe(viewLifecycleOwner){ list ->
+            binding.tvHistory.text = ""
+            list.forEach {
+                val text = "Scheme: ${it.scheme} Bank: ${it.bank}\n"
+                binding.tvHistory.append(text)
+            }
+        }
         init()
         viewModel.myCardItem.observe(viewLifecycleOwner) { list ->
             binding.tvSchemeValue.text = list.body()?.scheme
@@ -37,6 +44,18 @@ class MainFragment : Fragment() {
             binding.tvEmoji.text = list.body()?.country?.emoji
             binding.tvLatitude.text = list.body()?.country?.latitude.toString()
             binding.tvLongitude.text = list.body()?.country?.longitude.toString()
+            val request = RequestCard(null,
+                binding.tvSchemeValue.text.toString(),
+                binding.tvTypeValue.text.toString(),
+                binding.tvCountryValue.text.toString(),
+                binding.tvBankName.text.toString(),
+                binding.tvPrepaidValue.text.toString())
+            Thread{
+                if (db?.getDao()?.getTableSize()!! > 15){
+                    db?.getDao()?.deleteLastRequest()
+                }
+                db?.getDao()?.insertItem(request)
+            }.start()
         }
         return binding.root
     }

@@ -6,10 +6,14 @@ import android.util.Log
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.cardapp.data.db.MainDb
 import com.example.cardapp.databinding.ActivityMainBinding
+import com.example.cardapp.databinding.FragmentMainBinding
 import com.example.cardapp.presentation.MainFragment
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: FragmentMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
