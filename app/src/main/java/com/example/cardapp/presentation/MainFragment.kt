@@ -42,8 +42,8 @@ class MainFragment : Fragment() {
             binding.tvLunhValue.text = list.body()?.number?.luhn.toString()
             binding.tvCountryValue.text = list.body()?.country?.name
             binding.tvEmoji.text = list.body()?.country?.emoji
-            binding.tvLatitude.text = list.body()?.country?.latitude.toString()
-            binding.tvLongitude.text = list.body()?.country?.longitude.toString()
+            binding.tvLatitudeValue.text = list.body()?.country?.latitude.toString()
+            binding.tvLongitudeValue.text = list.body()?.country?.longitude.toString()
             val request = RequestCard(null,
                 binding.tvSchemeValue.text.toString(),
                 binding.tvTypeValue.text.toString(),
