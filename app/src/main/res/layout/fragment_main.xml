@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/currCardInform"
         android:layout_width="380dp"
-        android:layout_height="440dp"
+        android:layout_height="640dp"
         android:background="#5D5390"
         android:backgroundTint="#C35D5390"
         app:cardCornerRadius="10dp"
@@ -25,271 +25,323 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTypeValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="380dp"
+                android:layout_height="54dp"
+                app:cardBackgroundColor="#C35D5390"
+                app:cardElevation="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvScheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="SCHEME / NETWORK"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/tvSchemeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvScheme"
+                        app:layout_constraintTop_toBottomOf="@+id/tvScheme" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView2"
+                android:layout_width="380dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="350dp"
+                app:cardBackgroundColor="#C35D5390"
+                app:cardElevation="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/materialCardView"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvType"
-                app:layout_constraintTop_toBottomOf="@+id/tvType" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
 
-            <TextView
-                android:id="@+id/tvBankNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="72dp"
-                android:autoLink="phone"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvBankSite"
-                app:layout_constraintTop_toBottomOf="@+id/tvBankSite" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvBankName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvBank"
-                app:layout_constraintTop_toBottomOf="@+id/tvBank" />
+                    <TextView
+                        android:id="@+id/tvBankName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvBank"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBank" />
 
-            <TextView
-                android:id="@+id/tvCountry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="COUNTRY"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvBank"
-                app:layout_constraintTop_toBottomOf="@+id/tvBankNumber" />
+                    <TextView
+                        android:id="@+id/tvBankSite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvBankName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBankName" />
 
-            <TextView
-                android:id="@+id/tvCountryValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tvEmoji"
-                app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+                    <TextView
+                        android:id="@+id/tvBankNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoLink="phone"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvBankSite"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBankSite" />
 
-            <TextView
-                android:id="@+id/tvCardNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="CARD NUMBER"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvBrandValue"
-                app:layout_constraintTop_toBottomOf="@+id/tvBrandValue" />
+                    <TextView
+                        android:id="@+id/tvBank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="BANK"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvLength"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:text="LENGTH"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvCardNumber"
-                app:layout_constraintTop_toBottomOf="@+id/tvCardNumber" />
+                    <TextView
+                        android:id="@+id/tvCountryValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvEmoji"
+                        app:layout_constraintStart_toEndOf="@+id/tvEmoji"
+                        app:layout_constraintTop_toTopOf="@+id/tvEmoji" />
 
-            <TextView
-                android:id="@+id/tvLengthValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvLength"
-                app:layout_constraintTop_toBottomOf="@+id/tvLength" />
+                    <TextView
+                        android:id="@+id/tvCountry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COUNTRY"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvBankName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBankNumber"
+                        app:layout_constraintVertical_bias="0.02" />
 
-            <TextView
-                android:id="@+id/tvLunh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LUNH"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvCardNumber"
-                app:layout_constraintTop_toBottomOf="@+id/tvCardNumber" />
+                    <TextView
+                        android:id="@+id/tvEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#EFEFEF"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvCountry"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCountry"
+                        app:layout_constraintVertical_bias="0.04" />
 
-            <TextView
-                android:id="@+id/tvLunhValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvLunh"
-                app:layout_constraintTop_toBottomOf="@+id/tvLunh" />
+                    <TextView
+                        android:id="@+id/tvLatitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="LATITUDE"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvEmoji"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCountryValue" />
 
-            <TextView
-                android:id="@+id/tvType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:text="TYPE"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvScheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tvScheme"
-                app:layout_constraintTop_toTopOf="@+id/tvScheme"
-                app:layout_constraintVertical_bias="0.0" />
+                    <TextView
+                        android:id="@+id/tvLatitudeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvLatitude"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLatitude" />
 
-            <TextView
-                android:id="@+id/tvSchemeValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvScheme"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvScheme"
-                app:layout_constraintTop_toBottomOf="@+id/tvScheme" />
+                    <TextView
+                        android:id="@+id/tvLongitude"
+                        android:layout_width="132dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="64dp"
+                        android:text="LONGTITUDE"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvLatitude"
+                        app:layout_constraintTop_toTopOf="@+id/tvLatitude" />
 
-            <TextView
-                android:id="@+id/tvPrepaidValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/tvBankNumber"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvPrepaid"
-                app:layout_constraintTop_toBottomOf="@+id/tvPrepaid" />
+                    <TextView
+                        android:id="@+id/tvLongitudeValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvLongitude"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLongitude" />
 
-            <TextView
-                android:id="@+id/tvLatitudeValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvLatitude"
-                app:layout_constraintTop_toBottomOf="@+id/tvLatitude" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tvLatitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LATITUDE"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvEmoji"
-                app:layout_constraintTop_toBottomOf="@+id/tvEmoji" />
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/tvLongitude"
-                android:layout_width="132dp"
-                android:layout_height="25dp"
-                android:text="LONGTITUDE"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvLatitudeValue"
-                app:layout_constraintTop_toBottomOf="@+id/tvLatitudeValue" />
-
-            <TextView
-                android:id="@+id/tvLongitudeValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvLongitude"
-                app:layout_constraintTop_toBottomOf="@+id/tvLongitude" />
-
-            <TextView
-                android:id="@+id/tvEmoji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#EFEFEF"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvCountry"
-                app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
-
-            <TextView
-                android:id="@+id/tvScheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SCHEME / NETWORK"
-                android:textColor="@color/white"
-                android:textSize="18sp"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="380dp"
+                android:layout_height="240dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.027" />
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
+                app:layout_constraintVertical_bias="0.068"
+                app:cardBackgroundColor="#C35D5390"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp">
 
-            <TextView
-                android:id="@+id/tvBank"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="BANK"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvScheme"
-                app:layout_constraintTop_toBottomOf="@+id/tvSchemeValue" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvBrand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="BRAND"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvPrepaidValue"
-                app:layout_constraintTop_toBottomOf="@+id/tvPrepaidValue" />
+                    <TextView
+                        android:id="@+id/tvTypeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvType"
+                        app:layout_constraintTop_toBottomOf="@+id/tvType" />
 
-            <TextView
-                android:id="@+id/tvPrepaid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="PREPAID"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvTypeValue"
-                app:layout_constraintTop_toBottomOf="@+id/tvTypeValue" />
+                    <TextView
+                        android:id="@+id/tvCardNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="CARD NUMBER"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvBrandValue"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBrandValue" />
 
-            <TextView
-                android:id="@+id/tvBankSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvBankName"
-                app:layout_constraintTop_toBottomOf="@+id/tvBankName" />
+                    <TextView
+                        android:id="@+id/tvLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="52dp"
+                        android:text="LENGTH"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvBrandValue" />
 
-            <TextView
-                android:id="@+id/tvBrandValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tvBrand"
-                app:layout_constraintTop_toBottomOf="@+id/tvBrand" />
+                    <TextView
+                        android:id="@+id/tvLengthValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvLength"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLength" />
+
+                    <TextView
+                        android:id="@+id/tvLunh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="52dp"
+                        android:text="LUNH"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/tvPrepaidValue" />
+
+                    <TextView
+                        android:id="@+id/tvLunhValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvLunh"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLunh" />
+
+                    <TextView
+                        android:id="@+id/tvPrepaidValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvPrepaid"
+                        app:layout_constraintTop_toBottomOf="@+id/tvPrepaid" />
+
+                    <TextView
+                        android:id="@+id/tvBrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="BRAND"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvTypeValue"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTypeValue" />
+
+                    <TextView
+                        android:id="@+id/tvBrandValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvBrand"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBrand" />
+
+                    <TextView
+                        android:id="@+id/tvPrepaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:text="PREPAID"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/tvType"
+                        app:layout_constraintTop_toTopOf="@+id/tvType" />
+
+                    <TextView
+                        android:id="@+id/tvType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TYPE"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <EditText
                 android:id="@+id/etCardNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="52dp"
                 android:ems="10"
                 android:hint="Введите BIN"
                 android:inputType="textPersonName"
@@ -297,21 +349,24 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.428"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvLongitude" />
+                app:layout_constraintTop_toBottomOf="@+id/tvPrepaidValue"
+                app:layout_constraintVertical_bias="0.8" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetCardInform"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
                 android:text="Поиск"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etCardNumber"
-                app:layout_constraintStart_toStartOf="@+id/etCardNumber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etCardNumber" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -319,8 +374,7 @@
     <TextView
         android:id="@+id/tvHistory"
         android:layout_width="387dp"
-        android:layout_height="231dp"
-        android:layout_marginBottom="12dp"
+        android:layout_height="180dp"
         android:background="#C35D5390"
         android:text="TextView"
         android:textColor="@color/white"
@@ -330,19 +384,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/currCardInform"
         app:layout_constraintTop_toBottomOf="@+id/currCardInform"
-        app:layout_constraintVertical_bias="0.791" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tvHistortHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="History"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvHistory"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currCardInform" />
 </androidx.constraintlayout.widget.ConstraintLayout>
