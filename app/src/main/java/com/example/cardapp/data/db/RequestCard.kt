@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 data class RequestCard(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
+    @ColumnInfo(name = "bin")
+    var bin: String,
     @ColumnInfo(name = "scheme")
     var scheme: String,
     @ColumnInfo(name = "type")

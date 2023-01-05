@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#00FFFFFF"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C35D5390"
+        android:backgroundTint="#C35D5390">
+
+        <TextView
+            android:id="@+id/tvBin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Bin: "
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tvBinValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBin"
+            app:layout_constraintStart_toEndOf="@+id/tvBin"
+            app:layout_constraintTop_toTopOf="@+id/tvBin" />
+
+        <TextView
+            android:id="@+id/tvRcBankValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRcBank"
+            app:layout_constraintStart_toEndOf="@+id/tvRcBank"
+            app:layout_constraintTop_toTopOf="@+id/tvRcBank" />
+
+        <TextView
+            android:id="@+id/tvRcBank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Bank: "
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBin"
+            app:layout_constraintStart_toEndOf="@+id/tvBinValue"
+            app:layout_constraintTop_toTopOf="@+id/tvBin"
+            android:textSize="16sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -29,10 +29,13 @@
                 android:id="@+id/materialCardView"
                 android:layout_width="380dp"
                 android:layout_height="54dp"
+                android:layout_marginTop="8dp"
                 app:cardBackgroundColor="#C35D5390"
                 app:cardElevation="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
                 app:strokeColor="@color/black"
                 app:strokeWidth="1dp">
 
@@ -70,14 +73,14 @@
                 android:id="@+id/materialCardView2"
                 android:layout_width="380dp"
                 android:layout_height="220dp"
-                android:layout_marginBottom="350dp"
+                android:layout_marginBottom="200dp"
                 app:cardBackgroundColor="#C35D5390"
                 app:cardElevation="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/materialCardView"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                app:layout_constraintTop_toTopOf="parent"
                 app:strokeColor="@color/black"
                 app:strokeWidth="1dp">
 
@@ -204,8 +207,11 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView3"
                 android:layout_width="380dp"
                 android:layout_height="240dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="62dp"
                 app:cardBackgroundColor="#C35D5390"
                 app:cardElevation="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +219,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
-                app:layout_constraintVertical_bias="0.068"
                 app:strokeColor="@color/black"
                 app:strokeWidth="1dp">
 
@@ -342,52 +347,57 @@
                 android:id="@+id/etCardNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="52dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="18dp"
                 android:ems="10"
                 android:hint="Введите BIN"
                 android:inputType="textPersonName"
                 android:textColor="@color/white"
+                android:textColorHint="#DCDBDB"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/materialCardView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvPrepaidValue"
-                app:layout_constraintVertical_bias="0.8" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetCardInform"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
                 android:backgroundTint="#C35D5390"
                 android:text="Поиск"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCardNumber"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintTop_toBottomOf="@+id/etCardNumber" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvHistory"
-        android:layout_width="379dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="10dp"
-        android:background="#C35D5390"
-        android:text="TextView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcList"
+        android:layout_width="382dp"
+        android:layout_height="80dp"
+        android:background="#5D5390"
+        android:backgroundTint="#C35D5390"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/currCardInform"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/currCardInform"
-        app:layout_constraintTop_toBottomOf="@+id/currCardInform"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/currCardInform" />
+
+    <TextView
+        android:id="@+id/tvHistoryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:textColor="#1D313C"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/rcList"
+        app:layout_constraintEnd_toEndOf="@+id/rcList"
+        app:layout_constraintStart_toStartOf="@+id/rcList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

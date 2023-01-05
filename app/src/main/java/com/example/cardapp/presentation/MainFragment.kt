@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cardapp.data.db.MainDb
 import com.example.cardapp.data.db.RequestCard
 import com.example.cardapp.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
-    private lateinit var adapter: MainAdapter
+    var adapter = MainAdapter(ArrayList())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,14 +23,11 @@ class MainFragment : Fragment() {
         val viewModel = ViewModelProvider(this@MainFragment)[MainViewModel::class.java]
         val db = context?.let { MainDb.getDb(it) }
         binding = FragmentMainBinding.inflate(inflater, container, false)
-        db?.getDao()?.getAllRequests()?.asLiveData()?.observe(viewLifecycleOwner){ list ->
-            binding.tvHistory.text = ""
-            list.forEach {
-                val text = "Scheme: ${it.scheme} Bank: ${it.bank}\n"
-                binding.tvHistory.append(text)
-            }
-        }
         init()
+        db?.getDao()?.getAllRequests()?.asLiveData()?.observe(viewLifecycleOwner){ list ->
+            adapter.updateAdapter(list)
+        }
+
         viewModel.myCardItem.observe(viewLifecycleOwner) { list ->
             binding.tvSchemeValue.text = list.body()?.scheme
             binding.tvTypeValue.text = list.body()?.type
@@ -45,6 +43,7 @@ class MainFragment : Fragment() {
             binding.tvLatitudeValue.text = list.body()?.country?.latitude.toString()
             binding.tvLongitudeValue.text = list.body()?.country?.longitude.toString()
             val request = RequestCard(null,
+                binding.etCardNumber.text.toString(),
                 binding.tvSchemeValue.text.toString(),
                 binding.tvTypeValue.text.toString(),
                 binding.tvCountryValue.text.toString(),
@@ -66,6 +65,10 @@ class MainFragment : Fragment() {
             if(etCardNumber.text.isNotEmpty())
                 viewModel.getCardInformation(etCardNumber.text.toString())
         }
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.stackFromEnd
+        rcList.layoutManager = layoutManager
+        rcList.adapter = adapter
     }
 
     companion object {
